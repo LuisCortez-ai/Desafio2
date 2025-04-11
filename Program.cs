@@ -118,32 +118,57 @@ namespace Desafio2
         static void CalcularPromedioPeso()
         {
             Console.Clear();
+
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("\n\t***Promedio de Peso***");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.BackgroundColor = ConsoleColor.DarkYellow;
-
-            if (totalmascota == 0)
+            int encontrado = 1;
+            int resp = 0;
+            int i, k;
+            string EspecieMascota, NombreMascota;
+            Console.Write("\n\tDigitr los datos de la mascota a buscar");
+            Console.WriteLine("\n");
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write("\tNombre: ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            NombreMascota = Console.ReadLine().Trim().ToLower();
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write("\tEspecie: ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            EspecieMascota = Console.ReadLine().Trim().ToLower();
+            Console.ForegroundColor = ConsoleColor.Black;
+            int MascotaEncontrada = -1;
+            for (i = 0; i < totalmascota; i++)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n\tNo hay Mascotas Registradas");
-                Console.ForegroundColor = ConsoleColor.Gray;
-            }
-
-            else
-            {
-                double suma = 0;
-
-                for (int i = 0; i < totalmascota; i++)
+                if (NombreMascota == nombre[i].Trim().ToLower() && EspecieMascota == especie[i].Trim().ToLower())
                 {
-                    suma += peso[i];
+                    resp = 1;
+                    MascotaEncontrada = i;
+                    break;
                 }
-                double prom = suma / totalmascota;
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("\n\tEl peso promedio es de: " + Math.Round(prom, 2) + " kg");
-                Console.ForegroundColor = ConsoleColor.Gray;
             }
+            if (encontrado == resp)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        double suma = 0;
+
+                        for (k = 0; k < totalmascota; k++)
+                        {
+                            suma += peso[k];
+                        }
+                        double prom = suma / totalmascota;
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("\n\tEl peso promedio de {0} es de: " + Math.Round(prom, 2) + " kg", NombreMascota);
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        
+                     }
+                else
+                {
+                    Console.WriteLine("\n\tLa mascota {0} de la especie {1} no fue encontrada", NombreMascota, EspecieMascota);
+                }
+          
         }
         static void BuscarMascota()
         {
@@ -169,10 +194,12 @@ namespace Desafio2
             int MascotaEncontrada = -1;
             for (i = 0;i<totalmascota; i++)
             {
-                if (NombreMascota == nombre[i]&&EspecieMascota == especie[i])
+                if (NombreMascota == nombre[i] && EspecieMascota == especie[i])
+                {
                     resp = 1;
-                MascotaEncontrada = i;
-                break;
+                    MascotaEncontrada = i;
+                    break;
+                }
             }
                 if (encontrado == resp)
                 {
@@ -237,3 +264,4 @@ namespace Desafio2
         }
     }
 }
+
