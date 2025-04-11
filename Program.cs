@@ -54,6 +54,7 @@ namespace Desafio2
                         BuscarMascota();
                         break;
                     case 4:
+                        OrdenarMascotasPorEdad();
                         break;
                     case 5:
                         Console.ForegroundColor = ConsoleColor.Black;
@@ -188,7 +189,50 @@ namespace Desafio2
                 {
                     Console.WriteLine("\n\tLa mascota {0} de la especie {1} no fue encontrada", NombreMascota, EspecieMascota);
                 }
-            
+        }
+        static void OrdenarMascotasPorEdad()
+        {
+            Console.Clear();
+            int i, j;
+            int auxYearOld;
+            double auxWeight;
+            string auxName, auxSpecie;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.DarkCyan;
+            for (i = 0; i<totalmascota-1;i++)
+            {
+                for(j = 0; j<totalmascota-1;j++)
+                {
+                    if (edad[j]>edad[j+1])
+                    {
+                        auxYearOld = edad[j];
+                        edad[j] = edad[j+1];
+                        edad[j + 1] = auxYearOld;
+
+                        auxName = nombre[j];
+                        nombre[j] = nombre[j+1];
+                        nombre[j+1]=auxName;
+
+                        auxWeight = peso[j];
+                        peso[j]=peso[j+1];
+                        peso[j+1]=auxWeight;
+
+                        auxSpecie = especie[j];
+                        especie[j]=especie[j+1];
+                        especie[j+1]=auxSpecie;
+
+                    }
+                }    
+            }
+            Console.WriteLine("\n\tMascotas ordenadas por edad: ");
+            Console.WriteLine("\n");
+            for (i = 0; i < totalmascota; i++)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine($"{"\t Nombre: ",-10} {nombre[i],-13} {"edad: ",-7} { edad[i]}");
+                Console.ForegroundColor = ConsoleColor.Black;
+            }
 
         }
     }
