@@ -230,7 +230,7 @@ namespace Desafio2
             {
                 Console.BackgroundColor = ConsoleColor.DarkYellow;
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine($"{"\t Nombre: ",-10} {nombre[i],-13} {"edad: ",-7} { edad[i]}");
+                Console.WriteLine($"{"\t Nombre: ",-10} {nombre[i],-13} {"edad: ",-7} { edad[i],-10}{"años"}");
                 Console.ForegroundColor = ConsoleColor.Black;
             }
 
