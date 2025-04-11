@@ -9,6 +9,7 @@ namespace Desafio2
     internal class Program
     {
         //Decclaracion de arreglos de 10 espacios
+        static string[] nombrePersonasR = new string[10];
         static string[] nombre = new string[10];
         static string[] especie = new string[10];
         static int[] edad = new int[10];
@@ -85,7 +86,10 @@ namespace Desafio2
             {
                 Console.WriteLine("\n");
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.Write("\tNombre: ");
+                Console.Write("\n\tNombre de la persona responsable: ");
+                nombrePersonasR[totalmascota] = Console.ReadLine().Trim().ToLower();
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Write("\tNombre de la mascota: ");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 nombre[totalmascota] = Console.ReadLine();
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -127,11 +131,14 @@ namespace Desafio2
             int encontrado = 1;
             int resp = 0;
             int i, k;
-            string EspecieMascota, NombreMascota;
-            Console.Write("\n\tDigitr los datos de la mascota a buscar");
+            string EspecieMascota, NombreMascota,NombrePersonaR;
+            Console.Write("\n\tDigitr los datos de la mascota a buscar para promedio de peso");
             Console.WriteLine("\n");
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.Write("\tNombre: ");
+            Console.Write("\tNombre de la persona responsable: ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            NombrePersonaR = Console.ReadLine().Trim().ToLower();
+            Console.Write("\tNombre de la mascota: ");
             Console.ForegroundColor = ConsoleColor.Gray;
             NombreMascota = Console.ReadLine().Trim().ToLower();
             Console.ForegroundColor = ConsoleColor.Black;
@@ -142,7 +149,7 @@ namespace Desafio2
             int MascotaEncontrada = -1;
             for (i = 0; i < totalmascota; i++)
             {
-                if (NombreMascota == nombre[i].Trim().ToLower() && EspecieMascota == especie[i].Trim().ToLower())
+                if (NombreMascota == nombre[i].Trim().ToLower() && EspecieMascota == especie[i].Trim().ToLower()&& NombrePersonaR == nombrePersonasR[i].Trim().ToLower())
                 {
                     resp = 1;
                     MascotaEncontrada = i;
@@ -179,22 +186,25 @@ namespace Desafio2
             int encontrado = 1;
             int resp = 0;
             int i=0;
-            string EspecieMascota, NombreMascota;
+            string EspecieMascota, NombreMascota, NombrePersonaR;
             Console.Write("\n\tDigitr los datos de la mascota a buscar");
             Console.WriteLine("\n");
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.Write("\tNombre: ");
+            Console.Write("\tNombre de la persona responsable: ");
             Console.ForegroundColor = ConsoleColor.Gray;
-            NombreMascota = Console.ReadLine();
+            NombrePersonaR = Console.ReadLine().Trim().ToLower();
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write("\n\tNombre de la mascota: ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            NombreMascota = Console.ReadLine().Trim().ToLower();
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Write("\tEspecie: ");
             Console.ForegroundColor = ConsoleColor.Gray;
-            EspecieMascota= Console.ReadLine();
+            EspecieMascota= Console.ReadLine().Trim().ToLower();
             Console.ForegroundColor = ConsoleColor.Black;
             int MascotaEncontrada = -1;
             for (i = 0;i<totalmascota; i++)
             {
-                if (NombreMascota == nombre[i] && EspecieMascota == especie[i])
+                if (NombreMascota == nombre[i].Trim().ToLower() && EspecieMascota == especie[i].Trim().ToLower() && NombrePersonaR == nombrePersonasR[i].Trim().ToLower())
                 {
                     resp = 1;
                     MascotaEncontrada = i;
@@ -208,8 +218,8 @@ namespace Desafio2
                 Console.WriteLine("\n\tMostrando datos de {0}", NombreMascota);
                 Console.WriteLine("\tNombre: " + NombreMascota);
                 Console.WriteLine("\tEspecie: "+ EspecieMascota);
-                Console.WriteLine("\tEdad: " + edad[MascotaEncontrada]);
-                Console.WriteLine("\tPeso: " + peso[MascotaEncontrada]);
+                Console.WriteLine("\tEdad: " + edad[MascotaEncontrada]+ " años");
+                Console.WriteLine("\tPeso: " + peso[MascotaEncontrada]+" kg");
 
                 }
                 else
@@ -264,4 +274,3 @@ namespace Desafio2
         }
     }
 }
-
