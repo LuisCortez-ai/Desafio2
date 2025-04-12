@@ -209,6 +209,24 @@ static void BuscarMascota()
         Console.WriteLine("\tEspecie:\t" + EspecieMascota);
         Console.WriteLine("\tEdad:\t\t" + edad[MascotaEncontrada] + " años");
         Console.WriteLine("\tPeso:\t\t" + peso[MascotaEncontrada] + " kg");
+            if (peso[MascotaEncontrada] < 2)
+            {
+            diagnostico = "Bajo peso";
+            }
+            else if (peso[MascotaEncontrada] <= 25)
+            {
+            diagnostico = "Peso normal";
+            }
+            else
+           {
+           diagnostico = "Sobrepeso";
+           }
+           Console.WriteLine($"\tDiagnóstico automático: {diagnostico}");
+}
+else
+{
+    Console.WriteLine("\n\tLa mascota {0} de la especie {1} no fue encontrada", NombreMascota, EspecieMascota);
+}
 
     }
     else
@@ -258,7 +276,7 @@ static void OrdenarMascotasPorEdad()
     Console.WriteLine("\n");
     for (i = 0; i < totalmascota; i++)
     {
-        Console.WriteLine($"{"\t Nombre: ",-10}{nombre[i],-13} {"edad: ",-7}{edad[i],-10}{"años"}");
+        Console.WriteLine($"{"\t Nombre: ",-10}{nombre[i],-13} {"edad: ",-7}{edad[i],-2}{"años"}");
     }
 
 }
