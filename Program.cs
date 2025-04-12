@@ -199,7 +199,7 @@ static void BuscarMascota()
         }
 
     }
-    if (encontrado == resp)
+  if (MascotaEncontrada !=-1)
     {
         Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine("\n\tMostrando datos de {0}", NombreMascota);
