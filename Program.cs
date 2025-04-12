@@ -59,8 +59,6 @@ static void Main(string[] args)
                 break;
             case 5:
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine("\n\t🦴");
-                Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("\n\tSaliendo del Prograna...");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 break;
@@ -88,7 +86,7 @@ static void Registrarmascota()
 
     if (totalmascota < 10)
     {
-        
+
         Console.ForegroundColor = ConsoleColor.Black;
         Console.Write("\n\tNombre del responsable:\t");
         Console.ForegroundColor = ConsoleColor.Gray;
@@ -145,13 +143,13 @@ static void CalcularPromedioPeso()
         double suma = 0;
         Console.ForegroundColor = ConsoleColor.Black;
         Console.BackgroundColor = ConsoleColor.Red;
-        Console.WriteLine("\n\tNombre\t\tEspecie\tPeso (kg)");
+        Console.WriteLine("\n\tNombre\tEspecie\tPeso (kg)");
         Console.ForegroundColor = ConsoleColor.Gray;
         Console.BackgroundColor = ConsoleColor.DarkYellow;
         for (int i = 0; i < totalmascota; i++)
         {
             suma += peso[i];
-            Console.WriteLine($"\t🦴{nombre[i]}\t{especie[i]}\t{peso[i]}");
+            Console.WriteLine($"\t{nombre[i]}\t{especie[i]}\t{peso[i]}");
         }
         double prom = suma / totalmascota;
         Console.ForegroundColor = ConsoleColor.Magenta;
@@ -209,24 +207,35 @@ static void BuscarMascota()
         Console.WriteLine("\tEspecie:\t" + EspecieMascota);
         Console.WriteLine("\tEdad:\t\t" + edad[MascotaEncontrada] + " años");
         Console.WriteLine("\tPeso:\t\t" + peso[MascotaEncontrada] + " kg");
-            if (peso[MascotaEncontrada] < 2)
-            {
+        string diagnostico;
+        if (peso[MascotaEncontrada] < 2)
+        {
             diagnostico = "Bajo peso";
-            }
-            else if (peso[MascotaEncontrada] <= 25)
-            {
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write($"\tDiagnóstico:\t");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write( diagnostico);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+        else if (peso[MascotaEncontrada] <= 25)
+        {
             diagnostico = "Peso normal";
-            }
-            else
-           {
-           diagnostico = "Sobrepeso";
-           }
-           Console.WriteLine($"\tDiagnóstico automático: {diagnostico}");
-}
-else
-{
-    Console.WriteLine("\n\tLa mascota {0} de la especie {1} no fue encontrada", NombreMascota, EspecieMascota);
-}
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write($"\tDiagnóstico:\t");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(diagnostico);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+        else
+        {
+            diagnostico = "Sobrepeso";
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write($"\tDiagnóstico:\t");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(diagnostico);
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+        
 
     }
     else
