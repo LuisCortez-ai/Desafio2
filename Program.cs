@@ -9,7 +9,7 @@ namespace Desafio2
     internal class Program
     {
         //Decclaracion de arreglos de 10 espacios
-       static string[] nombrePersonasR = new string[10];
+      static string[] nombrePersonasR = new string[10];
 static string[] nombre = new string[10];
 static string[] especie = new string[10];
 static int[] edad = new int[10];
@@ -59,12 +59,14 @@ static void Main(string[] args)
                 break;
             case 5:
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine("\tSaliendo del Prograna...");
+                Console.WriteLine("\n\t🦴");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("\n\tSaliendo del Prograna...");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 break;
             default:
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n\tOpcion invalida, intente de nuevo");
+                Console.WriteLine("\n\tOpcion invalida, intente de nuevo 🚨");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 break;
         }
@@ -111,14 +113,14 @@ static void Registrarmascota()
         totalmascota++;
 
         Console.BackgroundColor = ConsoleColor.Green;
-        Console.WriteLine("\n\tMascota registrada 🐶");
+        Console.WriteLine("\n\t🦴 Mascota registrada 🐶");
         Console.ForegroundColor = ConsoleColor.Gray;
         Console.BackgroundColor = ConsoleColor.DarkYellow;
     }
     else
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\n\t¡Ya no quedan Espacios para Registar!");
+        Console.WriteLine("\n\t¡Ya no quedan Espacios para Registar! 🚨");
         Console.ForegroundColor = ConsoleColor.Gray;
     }
 }
@@ -134,7 +136,7 @@ static void CalcularPromedioPeso()
     if (totalmascota == 0)
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\n\tNo hay Mascotas Registradas");
+        Console.WriteLine("\n\tNo hay Mascotas Registradas 🚨");
         Console.ForegroundColor = ConsoleColor.Gray;
     }
 
@@ -143,13 +145,13 @@ static void CalcularPromedioPeso()
         double suma = 0;
         Console.ForegroundColor = ConsoleColor.Black;
         Console.BackgroundColor = ConsoleColor.Red;
-        Console.WriteLine("\n\tNombre\tEspecie\tPeso (kg)");
+        Console.WriteLine("\n\tNombre\t\tEspecie\tPeso (kg)");
         Console.ForegroundColor = ConsoleColor.Gray;
         Console.BackgroundColor = ConsoleColor.DarkYellow;
         for (int i = 0; i < totalmascota; i++)
         {
             suma += peso[i];
-            Console.WriteLine($"\t{nombre[i]}\t{especie[i]}\t{peso[i]}");
+            Console.WriteLine($"\t🦴{nombre[i]}\t{especie[i]}\t{peso[i]}");
         }
         double prom = suma / totalmascota;
         Console.ForegroundColor = ConsoleColor.Magenta;
@@ -180,7 +182,7 @@ static void BuscarMascota()
     Console.ForegroundColor = ConsoleColor.Gray;
     NombrePersonaR = Console.ReadLine().Trim().ToLower();
     Console.ForegroundColor = ConsoleColor.Black;
-    Console.Write("\n\tNombre de la mascota:\t");
+    Console.Write("\tNombre de la mascota:\t");
     Console.ForegroundColor = ConsoleColor.Gray;
     NombreMascota = Console.ReadLine().Trim().ToLower();
     Console.ForegroundColor = ConsoleColor.Black;
@@ -199,19 +201,21 @@ static void BuscarMascota()
         }
 
     }
-  if (MascotaEncontrada !=-1)
+    if (encontrado == resp)
     {
         Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine("\n\tMostrando datos de {0}", NombreMascota);
-        Console.WriteLine("\tNombre:\t" + NombreMascota);
+        Console.WriteLine("\tNombre:\t\t" + NombreMascota);
         Console.WriteLine("\tEspecie:\t" + EspecieMascota);
-        Console.WriteLine("\tEdad:\t" + edad[MascotaEncontrada] + " años");
-        Console.WriteLine("\tPeso:\t" + peso[MascotaEncontrada] + " kg");
+        Console.WriteLine("\tEdad:\t\t" + edad[MascotaEncontrada] + " años");
+        Console.WriteLine("\tPeso:\t\t" + peso[MascotaEncontrada] + " kg");
 
     }
     else
     {
-        Console.WriteLine("\n\tLa mascota {0} de la especie {1} no fue encontrada", NombreMascota, EspecieMascota);
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\n\tLa mascota {0} de la especie {1} no fue encontrada 🚨", NombreMascota, EspecieMascota);
+        Console.ForegroundColor = ConsoleColor.Gray;
     }
 }
 static void OrdenarMascotasPorEdad()
